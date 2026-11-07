@@ -1,13 +1,18 @@
 {
   "version": 2,
+  "cleanUrls": true,
   "rewrites": [
     {
       "source": "/.netlify/functions/api",
       "destination": "/api"
     },
     {
-      "source": "/api/(.*)",
+      "source": "/api",
       "destination": "/api"
+    },
+    {
+      "source": "/api/:action",
+      "destination": "/api?action=:action"
     }
   ]
 }
