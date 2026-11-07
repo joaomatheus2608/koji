@@ -1,0 +1,7 @@
+[build]
+  command = "echo 'Build success'"
+  publish = "."
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "18"
