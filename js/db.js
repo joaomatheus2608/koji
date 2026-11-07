@@ -229,10 +229,10 @@
 
       // Fallback local se a nuvem ainda não estiver configurada
       const settings = getStored(STORAGE_KEYS.SETTINGS, window.INITIAL_SETTINGS || {});
-      const expected = String(settings.admin_password_hash || 'admin').trim();
+      const expected = String(settings.admin_password_hash || '').trim();
       const input = String(password || '').trim();
 
-      if (input === expected || input === 'admin' || input === '123456') {
+      if (expected && input === expected) {
         return { success: true, token: `local_admin_${Date.now()}` };
       }
       return { success: false, error: 'Senha administrativa incorreta.' };

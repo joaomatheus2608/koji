@@ -135,9 +135,12 @@ exports.handler = async function (event, context) {
       }
       const data = await supabaseFetch('/settings?select=admin_password_hash&limit=1');
       const storeSettings = Array.isArray(data) ? data[0] : data;
-      const expectedPass = String(storeSettings?.admin_password_hash || 'admin').trim();
+      const expectedPass = String(storeSettings?.admin_password_hash || '').trim();
 
-      if (inputPass === expectedPass || inputPass === 'admin') {
+      if (!expectedPass) {
+        return respond(500, { success: false, error: 'Senha não configurada no banco.' });
+      }
+      if (inputPass === expectedPass) {
         return respond(200, { success: true, token: `token_${Date.now()}` });
       }
       return respond(401, { success: false, error: 'Senha incorreta.' });

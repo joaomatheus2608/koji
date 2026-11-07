@@ -15,7 +15,7 @@ const INITIAL_SETTINGS = {
   min_order_value: 0.00,
   store_status_mode: "auto",
   closed_message: "Estamos fechados no momento. Horário: Terça a Quinta das 18:00 às 22:30 • Sexta a Domingo das 18:00 às 23:00 (Segunda-feira fechado).",
-  admin_password_hash: "admin",
+  admin_password_hash: "kojiomelhor",
   pix_key: "5581986460274",
   pix_type: "Telefone",
   pix_beneficiary: "Koji Sushi"
